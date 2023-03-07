@@ -15,6 +15,24 @@ struct SolidConcentration
     c₁ₚ::Vector{Float64}
 end
 
+function SolidConcentration(t::Vector{Float64}, tspan, I)
+    c₁ₖ₀ = [c₁ₙ₀; c₁ₚ₀]
+    c₁ₖ = rk4(dc₁dt, c₁ₖ₀, t, tspan, I)
+    c₁ₙ = c₁ₖ[1, :]
+    c₁ₚ = c₁ₖ[2, :]
+
+    return SolidConcentration(c₁ₙ, c₁ₚ)
+end
+
+function dc₁dt(t, c₁, I)
+    df = zeros(2, 1)
+
+    df[1] = -3*jₙ(I)/rₙ;
+    df[2] = -3*jₚ(I)/rₚ;
+
+    return df
+end
+
 """
 Radially averaged solid concentration
 
@@ -27,16 +45,33 @@ struct SolidRadialConcentration
     c₁ₚᵣ::Vector{Float64}
 end
 
+function SolidRadialConcentration(t, tspan, I)
+    c₁ₖᵣ₀ = Float64.([0.0; 0.0])
+    c₁ₖᵣ = rk4(dc₁ᵣdt, c₁ₖᵣ₀, t, tspan, I)
+    c₁ₙᵣ = c₁ₖᵣ[1, :]
+    c₁ₚᵣ = c₁ₖᵣ[2, :]
+
+    return SolidRadialConcentration(c₁ₙᵣ, c₁ₚᵣ)
+end
+
+function dc₁ᵣdt(t, c₁ᵣ, I)
+    df = zeros(2, 1)
+    df[1] = -45*jₙ(I)/(2*rₙ^2) - 30*D₁ₙ*c₁ᵣ[1]/rₙ^2
+    df[2] = -45*jₚ(I)/(2*rₚ^2) - 30*D₁ₚ*c₁ᵣ[2]/rₚ^2;
+
+    return df
+end
+
 # Surface solid phase concentration
 # Refer equation 149.
 
 """Surface solid phase concentration in negative electrode"""
 function cₛₙ(c₁::SolidConcentration, c₁ᵣ::SolidRadialConcentration, I)
-    c₁.c₁ₙ - rₙ*jₙ(I)/(35*D₁ₙ) + 8*rₙ*c₁ᵣ.c₁ₙᵣ/35
+    c₁.c₁ₙ .- rₙ*jₙ(I)/(35*D₁ₙ) .+ 8*rₙ*c₁ᵣ.c₁ₙᵣ/35
 end
 
 """Surface solid phase concentration in positive electrode"""
 function cₛₚ(c₁::SolidConcentration, c₁ᵣ::SolidRadialConcentration, I)
-    c₁.c₁ₚ - rₚ*jₚ(I)/(35*D₁ₚ) + 8*rₚ*c₁ᵣ.c₁ₚᵣ/35
+    c₁.c₁ₚ .- rₚ*jₚ(I)/(35*D₁ₚ) .+ 8*rₚ*c₁ᵣ.c₁ₚᵣ/35
 end
 

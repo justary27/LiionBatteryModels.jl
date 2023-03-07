@@ -1,5 +1,8 @@
 module CaseStudy
+    
+    include("senthil/senthil.jl")
 
-greet() = print("Hello World!")
+    export SenthilModel
+end
 
-end # module CaseStudy
+export CaseStudy

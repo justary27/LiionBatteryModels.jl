@@ -1,4 +1,4 @@
-module Constants
+# module Constants
 
     # Universal Constants
 
@@ -136,8 +136,9 @@ module Constants
 
     const SOCₚₘₐₓ=1
 
-    export R, F, T, brug, t₊, lₙ, lₛ, lₚ, ϵ₂ₙ, ϵ₂ₛ, ϵ₂ₚ, ϵ₁ₙ, ϵ₁ₛ, ϵ₁ₚ, L, D₂ₙ, 
-    D₂ₛ, D₂ₚ, D₁ₙ, D₁ₚ, rₙ, rₚ, aₙ, aₚ, kₙ, kₚ,c₁ₙ₀, c₁ₙₘₐₓ, c₁ₚ₀, c₁ₚₘₐₓ, c₂₀, 
-    αᵢₙ, αᵢₚ, θ,SOCₚₘᵢₙ, SOCₚₘₐₓ
+#     export R, F, T, brug, t₊, lₙ, lₛ, lₚ, ϵ₂ₙ, ϵ₂ₛ, ϵ₂ₚ, ϵ₁ₙ, ϵ₁ₛ, ϵ₁ₚ, L, D₂ₙ, 
+#     D₂ₛ, D₂ₚ, D₁ₙ, D₁ₚ, rₙ, rₚ, aₙ, aₚ, kₙ, kₚ,c₁ₙ₀, c₁ₙₘₐₓ, c₁ₚ₀, c₁ₚₘₐₓ, c₂₀, 
+#     αᵢₙ, αᵢₚ, θ,SOCₚₘᵢₙ, SOCₚₘₐₓ
     
-end
+# end
+

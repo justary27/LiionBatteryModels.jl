@@ -10,7 +10,7 @@ end
 
 """Over-potential in positive electrode"""
 function jₚ₀(c₁::SolidConcentration, c₁ᵣ::SolidRadialConcentration, I, x::Float64, c₂ᵢₖ::InterfacialConc, q₂ᵢₖ::InterfacialFlux)
-    kₚ*(c₁ₙₘₐₓ .- cₛₚ(c₁, c₁ᵣ, I)).^(0.5).*cₛₚ(c₁, c₁ᵣ, I).^(0.5).*c₂(x, c₂ᵢₖ, q₂ᵢₖ).^(0.5)
+    kₚ*(c₁ₚₘₐₓ .- cₛₚ(c₁, c₁ᵣ, I)).^(0.5).*cₛₚ(c₁, c₁ᵣ, I).^(0.5).*c₂(x, c₂ᵢₖ, q₂ᵢₖ).^(0.5)
 end
 
 # State of Charge
@@ -34,7 +34,7 @@ end
 """Open circuit potential in negative electrode"""
 function Uₙ(c₁::SolidConcentration, c₁ᵣ::SolidRadialConcentration, I)
     socₙ = SOCₙ(c₁, c₁ᵣ, I)
-    0.13966 .+ 0.68920.*exp(-49.20361.*socₙ) + 0.41903.*exp(-254.40067.*socₙ) - exp(49.97886.*socₙ-43.37888) - 0.028221.*atan(22.52300.*socₙ-3.65328) - 0.01308.*atan(28.34801.*socₙ-13.43960)
+    0.13966 .+ 0.68920*exp.(-49.20361*socₙ) + 0.41903*exp.(-254.40067*socₙ) .- exp.(49.97886*socₙ.-43.37888) .- 0.028221*atan.(22.52300*socₙ.-3.65328) .- 0.01308*atan.(28.34801*socₙ.-13.43960)
 end
 
 """Open circuit potential in positive electrode"""
@@ -48,12 +48,12 @@ end
 
 """Solid potential in negative electrode"""
 function ϕ₁ₙ(c₁::SolidConcentration, c₁ᵣ::SolidRadialConcentration, I, x::Float64, c₂ᵢₖ::InterfacialConc, q₂ᵢₖ::InterfacialFlux)
-    Uₙ(c₁, c₁ᵣ, I) .+ ϕ₂(x::Float64,c₂ᵢₖ::InterfacialConc, q₂ᵢₖ::InterfacialFlux, I) .+ 2*R*T*asinh(jₙ(I)./(2*jₙ₀(c₁, c₁ᵣ, I, x, c₂ᵢₖ, q₂ᵢₖ)))/F
+    Uₙ(c₁, c₁ᵣ, I) .+ ϕ₂(x::Float64,c₂ᵢₖ::InterfacialConc, q₂ᵢₖ::InterfacialFlux, I) .+ 2*R*T*asinh.(jₙ(I)./(2*jₙ₀(c₁, c₁ᵣ, I, x, c₂ᵢₖ, q₂ᵢₖ)))/F
 end
 
 """Solid potential in positive electrode"""
 function ϕ₁ₚ(c₁::SolidConcentration, c₁ᵣ::SolidRadialConcentration, I, x::Float64, c₂ᵢₖ::InterfacialConc, q₂ᵢₖ::InterfacialFlux)
-    Uₚ(c₁, c₁ᵣ, I) .+ ϕ₂(x::Float64,c₂ᵢₖ::InterfacialConc, q₂ᵢₖ::InterfacialFlux, I) .+ 2*R*T*asinh(jₚ(I)./(2*jₚ₀(c₁, c₁ᵣ, I, x, c₂ᵢₖ, q₂ᵢₖ)))/F
+    Uₚ(c₁, c₁ᵣ, I) .+ ϕ₂(x::Float64,c₂ᵢₖ::InterfacialConc, q₂ᵢₖ::InterfacialFlux, I) .+ 2*R*T*asinh.(jₚ(I)./(2*jₚ₀(c₁, c₁ᵣ, I, x, c₂ᵢₖ, q₂ᵢₖ)))/F
 end
 
 # Overall solid potential @x

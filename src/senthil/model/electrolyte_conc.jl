@@ -1,5 +1,7 @@
 include("interfacial_conc.jl")
 
+using QuadGK
+
 # Electrloyte concentrations @ x = 0, L and (lₙ + lₛ/2)
 # Refer equations 60, 67 & 76
 
@@ -51,16 +53,22 @@ end
 
 """Average electrolyte concentration in negative electrode"""
 function c₂̄ₙ(c₂ᵢₖ::InterfacialConc, q₂ᵢₖ::InterfacialFlux)
-    1/lₙ
+    integral, errest = quadgk(x->c₂(x, c₂ᵢₖ, q₂ᵢₖ), 0, lₙ)
+    
+    integral/lₙ
 end
 
 """Average electrolyte concentration in separator"""
 function c₂̄ₛ(c₂ᵢₖ::InterfacialConc, q₂ᵢₖ::InterfacialFlux)
-    1/lₛ 
+    integral, errest = quadgk(x->c₂(x, c₂ᵢₖ, q₂ᵢₖ), lₙ, lₛ + lₙ)
+    
+    integral/lₛ 
 end
 
 """Average electrolyte concentration in positive electrode"""
 function c₂̄ₚ(c₂ᵢₖ::InterfacialConc, q₂ᵢₖ::InterfacialFlux)
-    1/lₚ
+    integral, errest = quadgk(x->c₂(x, c₂ᵢₖ, q₂ᵢₖ), lₛ + lₙ, L)
+    
+    integral/lₚ
 end
 

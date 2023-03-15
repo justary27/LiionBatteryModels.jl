@@ -18,17 +18,17 @@ end
 
 """Electrloyte potential in negative electrode"""
 function ϕ₂ₙ(x::Float64, c₂ᵢₖ::InterfacialConc, q₂ᵢₖ::InterfacialFlux, I)
-    ϕ₂ᵢₙ(c₂ᵢₖ, q₂ᵢₖ, I) .+ 2*θ*log.(c₂ₙ(x, c₂ᵢₖ, q₂ᵢₖ)/c₂ᵢₖ.c₂ᵢₙ) .+ (I*(lₙ-x))./k₂ₙ(c₂ᵢₖ, q₂ᵢₖ) .- (I*(lₙ-x)^2)./(2*k₂ₙ(c₂ᵢₖ, q₂ᵢₖ)*lₙ)
+    ϕ₂ᵢₙ(c₂ᵢₖ, q₂ᵢₖ, I) .+ 2*θ*log.(c₂ₙ(x, c₂ᵢₖ, q₂ᵢₖ)./c₂ᵢₖ.c₂ᵢₙ) .+ (I*(lₙ-x))./k₂ₙ(c₂ᵢₖ, q₂ᵢₖ) .- (I*(lₙ-x)^2)./(2*k₂ₙ(c₂ᵢₖ, q₂ᵢₖ)*lₙ)
 end
 
 """Electrloyte potential in separator"""
 function ϕ₂ₛ(x::Float64, c₂ᵢₖ::InterfacialConc, q₂ᵢₖ::InterfacialFlux, I)
-    2*θ*log.(c₂ₛ(x, c₂ᵢₖ, q₂ᵢₖ)/c₂ₘₜ(c₂ᵢₖ, q₂ᵢₖ)) .- I*(x-(lₙ+lₛ/2))./k₂ₛ(c₂ᵢₖ, q₂ᵢₖ)
+    2*θ*log.(c₂ₛ(x, c₂ᵢₖ, q₂ᵢₖ)./c₂ₘₜ(c₂ᵢₖ, q₂ᵢₖ)) .- I*(x-(lₙ+lₛ/2))./k₂ₛ(c₂ᵢₖ, q₂ᵢₖ)
 end
 
 """Electrloyte potential in positive electrode"""
 function ϕ₂ₚ(x::Float64, c₂ᵢₖ::InterfacialConc, q₂ᵢₖ::InterfacialFlux, I)
-    ϕ₂ᵢₚ(c₂ᵢₖ, q₂ᵢₖ, I) .+ 2*θ*log.(c₂ₚ(x, c₂ᵢₖ, q₂ᵢₖ)/c₂ᵢₖ.c₂ᵢₚ) .- (I*(x-lₙ-lₛ))./k₂ₚ(c₂ᵢₖ, q₂ᵢₖ) .+ (I*(x-lₙ-lₛ)^2)./(2*k₂ₚ(c₂ᵢₖ, q₂ᵢₖ)*lₚ)
+    ϕ₂ᵢₚ(c₂ᵢₖ, q₂ᵢₖ, I) .+ 2*θ*log.(c₂ₚ(x, c₂ᵢₖ, q₂ᵢₖ)./c₂ᵢₖ.c₂ᵢₚ) .- (I*(x-lₙ-lₛ))./k₂ₚ(c₂ᵢₖ, q₂ᵢₖ) .+ (I*(x-lₙ-lₛ)^2)./(2*k₂ₚ(c₂ᵢₖ, q₂ᵢₖ)*lₚ)
 end
 
 # Overall electrolyte potential @x

@@ -18,6 +18,7 @@ function rk4(df, X0::Vector{Float64}, t::Vector{Float64}, tspan, args...)
 
     # Constructing result
     for i in 1 : N-1
+        args = (args..., i)
         k1 = h*df(t[i], Ypred[:, i], args...)
         k2 = h*df(t[i] + h/2, Ypred[:, i] + k1/2, args...)
         k3 = h*df(t[i] + h/2, Ypred[:, i] + k2/2, args...)

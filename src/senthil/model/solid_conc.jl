@@ -24,11 +24,19 @@ function SolidConcentration(t::Vector{Float64}, tspan, I)
     return SolidConcentration(c₁ₙ, c₁ₚ)
 end
 
-function dc₁dt(t, c₁, I)
+function dc₁dt(t, c₁, args...)
     df = zeros(2, 1)
+    I = args[1]
 
-    df[1] = -3*jₙ(I)/rₙ;
-    df[2] = -3*jₚ(I)/rₚ;
+
+    if I isa Float64
+        df[1] = -3*jₙ(I)/rₙ;
+        df[2] = -3*jₚ(I)/rₚ;
+    else
+        i = args[2]
+        df[1] = -3*jₙ(i)/rₙ;
+        df[2] = -3*jₚ(i)/rₚ;
+    end
 
     return df
 end
@@ -54,10 +62,19 @@ function SolidRadialConcentration(t, tspan, I)
     return SolidRadialConcentration(c₁ₙᵣ, c₁ₚᵣ)
 end
 
-function dc₁ᵣdt(t, c₁ᵣ, I)
+function dc₁ᵣdt(t, c₁ᵣ, args...)
     df = zeros(2, 1)
-    df[1] = -45*jₙ(I)/(2*rₙ^2) - 30*D₁ₙ*c₁ᵣ[1]/rₙ^2
-    df[2] = -45*jₚ(I)/(2*rₚ^2) - 30*D₁ₚ*c₁ᵣ[2]/rₚ^2;
+    I = args[1]
+
+
+    if I isa Float64
+        df[1] = -45*jₙ(I)/(2*rₙ^2) - 30*D₁ₙ*c₁ᵣ[1]/rₙ^2
+        df[2] = -45*jₚ(I)/(2*rₚ^2) - 30*D₁ₚ*c₁ᵣ[2]/rₚ^2;
+    else
+        i = args[2]
+        df[1] = -45*jₙ(i)/(2*rₙ^2) - 30*D₁ₙ*c₁ᵣ[1]/rₙ^2
+        df[2] = -45*jₚ(i)/(2*rₚ^2) - 30*D₁ₚ*c₁ᵣ[2]/rₚ^2;
+    end    
 
     return df
 end

@@ -2,7 +2,10 @@ using Documenter
 using CaseStudy, CaseStudy.SenthilModel, CaseStudy.AshwiniModel
 
 makedocs(
-    sitename="CaseStudy",
+    sitename = "CaseStudy.jl",
+    format = Documenter.HTML(
+        assets = ["assets/favicon.ico"]
+    ),
     modules = [
         CaseStudy,
         CaseStudy.SenthilModel, 
@@ -18,5 +21,6 @@ makedocs(
             "Core" => "library/core.md",
             "Utils" => "library/utils.md",
         ],
+        "License" => "license.md"
     ]
 )

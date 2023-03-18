@@ -1,16 +1,12 @@
 using Documenter
-using CaseStudy, CaseStudy.SenthilModel, CaseStudy.AshwiniModel
+using CaseStudy
 
 makedocs(
     sitename = "CaseStudy.jl",
     format = Documenter.HTML(
         assets = ["assets/favicon.ico"]
     ),
-    modules = [
-        CaseStudy,
-        CaseStudy.SenthilModel, 
-        CaseStudy.AshwiniModel,
-    ],
+    modules = [CaseStudy],
     pages = [
         "Home" => "index.md",
         "Manual" => [

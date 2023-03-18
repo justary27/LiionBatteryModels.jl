@@ -1,13 +1,12 @@
 # using Documenter
-# using CaseStudy, CaseStudy.SenthilModel, CaseStudy.AshwiniModel
+# using CaseStudy
 
 # makedocs(
-#     sitename="CaseStudy",
-#     modules = [
-#         CaseStudy,
-#         CaseStudy.SenthilModel, 
-#         CaseStudy.AshwiniModel,
-#     ],
+#     sitename = "CaseStudy.jl",
+#     format = Documenter.HTML(
+#         assets = ["assets/favicon.ico"]
+#     ),
+#     modules = [CaseStudy],
 #     pages = [
 #         "Home" => "index.md",
 #         "Manual" => [
@@ -18,5 +17,10 @@
 #             "Core" => "library/core.md",
 #             "Utils" => "library/utils.md",
 #         ],
+#         "License" => "license.md"
 #     ]
+# )
+
+# deploydocs(
+#     repo = "github.com/just-ary27/CaseStudy.git",
 # )

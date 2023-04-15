@@ -1,1 +1,2 @@
-# CaseStudy
+# Scripts
+This section contains the various MATLAB scripts that were written by [Ashish Singh](https://github.com/morancium) and [Pawan Lahoti](https://github.com/PawanLahoti). These scripts were the first iteration of the mathematical implementation of the papers. These were then converted to library sub-modules by [Aryan Ranjan](https://github.com/just-ary27/).

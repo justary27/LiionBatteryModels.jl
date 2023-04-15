@@ -1,4 +1,7 @@
-# CaseStudy
+<div>
+    <img src="assets/readmeAssets/logo.png" align="left" height=40> 
+    <h1>CaseStudy.jl</h1>
+</div>
 
 This repository has all the work done during the Spring semester of 2022-23 in the course `CHN300 Case Study`.
 

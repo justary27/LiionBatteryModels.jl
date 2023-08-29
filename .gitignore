@@ -23,5 +23,8 @@ docs/site/
 # environment.
 Manifest.toml
 
+# MATLAB generated files
+*.asv
+
 # VS code generated files
 .vscode/

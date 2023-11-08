@@ -7,7 +7,7 @@ for c₂ at a given timestep in the timeseries.
 
 Returns the 16 parameters: n₀(t), n₁(t), n₂(t), n₃(t),
 p₀(t), p₁(t), p₂(t), p₃(t), s₀(t), s₁(t), s₂(t), <c₂>ₙ,
-<c₂>ₚ , <c₂>ₛ, c₂|ₓ₌₀ and c₂|ₓ₌ₗ
+<c₂>ₚ , <c₂>ₛ, c₂|ₓ₌₀ and c₂|ₓ₌ₗ in this order
 
 ### Params:
     - I: The current at the timestep.
@@ -35,7 +35,7 @@ function param_solver(I, Δt, c₂ₙₚ, c₂ₛₚ, c₂ₚₚ, c₂ₙ₀ₚ,
     # Eqn 75
     A[4, 1] = -1; A[4, 5] = 1; A[4, 10] = -lₛ; A[4, 11] = -lₛ^2
 
-    c.D2n(c₂ₙₚ)
+    # c.D2n(c₂ₙₚ)
 
     # Eqn 76
     A[5, 3] = -2*lₙ*d₂ₙ(c₂ₙₚ)

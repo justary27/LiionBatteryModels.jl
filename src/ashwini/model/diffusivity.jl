@@ -13,7 +13,7 @@ end
 
 """Electrolyte diffusivity in separator"""
 function d₂ₛ(c₂ₚ) 
-    d₂(c₂ₚ) * (ϵ₂ₛ ^ brugsₛ);
+    d₂(c₂ₚ) * (ϵ₂ₛ ^ brugₛ);
 end
 
 """Electrolyte diffusivity in positive electrode"""

@@ -8,92 +8,92 @@
     see the respective `src/{module}/constants/constants.jl` 
     file.
 
-## CaseStudy
+## LiionBatteryModels
 
 ### Modules
 
 ```@autodocs
-Modules = [CaseStudy]
+Modules = [LiionBatteryModels]
 Order   = [:module]
 ```
 
 ### Types
 
 ```@autodocs
-Modules = [CaseStudy]
+Modules = [LiionBatteryModels]
 Order   = [:types]
 ```
 
 ### Functions
 
 ```@autodocs
-Modules = [CaseStudy]
+Modules = [LiionBatteryModels]
 Order   = [:function]
 ```
 
 ### Constants
 
 ```@autodocs
-Modules = [CaseStudy]
+Modules = [LiionBatteryModels]
 Order   = [:constant]
 ```
 
-## CaseStudy.SenthilModel
+## LiionBatteryModels.SenthilModel
 
 ### Modules
 
 ```@autodocs
-Modules = [CaseStudy.SenthilModel]
+Modules = [LiionBatteryModels.SenthilModel]
 Order   = [:module]
 ```
 
 ### Structs
 
 ```@docs
-CaseStudy.SenthilModel.SolidConcentration
-CaseStudy.SenthilModel.InterfacialConc
-CaseStudy.SenthilModel.InterfacialFlux
-CaseStudy.SenthilModel.SolidRadialConcentration
+LiionBatteryModels.SenthilModel.SolidConcentration
+LiionBatteryModels.SenthilModel.InterfacialConc
+LiionBatteryModels.SenthilModel.InterfacialFlux
+LiionBatteryModels.SenthilModel.SolidRadialConcentration
 ```
 
 ### Functions
 
 ```@autodocs
-Modules = [CaseStudy.SenthilModel]
+Modules = [LiionBatteryModels.SenthilModel]
 Order   = [:function]
 ```
 
 ### Constants
 ```@autodocs
-Modules = [CaseStudy.SenthilModel]
+Modules = [LiionBatteryModels.SenthilModel]
 Order   = [:constant]
 ```
 
-## CaseStudy.AshwiniModel
+## LiionBatteryModels.AshwiniModel
 
 ### Modules
 
 ```@autodocs
-Modules = [CaseStudy.AshwiniModel]
+Modules = [LiionBatteryModels.AshwiniModel]
 Order   = [:module]
 ```
 
 ### Types
 
 ```@autodocs
-Modules = [CaseStudy.AshwiniModel]
+Modules = [LiionBatteryModels.AshwiniModel]
 Order   = [:types]
 ```
 
 ### Functions
 
 ```@autodocs
-Modules = [CaseStudy.AshwiniModel]
+Modules = [LiionBatteryModels.AshwiniModel]
 Order   = [:function]
 ```
 
 ### Constants
 ```@autodocs
-Modules = [CaseStudy.AshwiniModel]
+Modules = [LiionBatteryModels.AshwiniModel]
 Order   = [:constant]
 ```

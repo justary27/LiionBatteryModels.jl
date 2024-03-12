@@ -2,7 +2,7 @@ using Documenter
 using CaseStudy
 
 makedocs(
-    sitename = "CaseStudy.jl",
+    sitename = "LiionBatteryModels.jl",
     format = Documenter.HTML(
         assets = ["assets/favicon.ico"]
     ),

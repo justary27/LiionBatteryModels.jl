@@ -2,12 +2,12 @@ using Documenter
 using CaseStudy
 
 makedocs(
-    sitename = "LiionBatteryModels.jl",
-    format = Documenter.HTML(
-        assets = ["assets/favicon.ico"]
+    sitename="LiionBatteryModels.jl",
+    format=Documenter.HTML(
+        assets=["assets/favicon.ico"]
     ),
-    modules = [CaseStudy],
-    pages = [
+    modules=[CaseStudy],
+    pages=[
         "Home" => "index.md",
         "Manual" => [
             "Guide" => "manual/guide.md",
@@ -22,6 +22,6 @@ makedocs(
 )
 
 deploydocs(
-    repo = "github.com/just-ary27/LiionBatteryModels.jl.git",
-    versions = nothing,
+    repo="github.com/just-ary27/LiionBatteryModels.jl.git",
+    versions=nothing,
 )

@@ -1,4 +1,4 @@
-# CaseStudy.jl
+# LiionBatteryModels.jl
 *Julia implementations of various mathematical models from research papers based on SOC in Li-ion batteries.*
 
 A package for determining various cell parameters for different Li-ion battery models.
@@ -12,5 +12,5 @@ A package for determining various cell parameters for different Li-ion battery m
 
 ```@raw html
 <div align=center><img src="./assets/logo.png" width=40%></div>
-<div align=center>Welcome to CaseStudy.jl!</div>
+<div align=center>Welcome to LiionBatteryModels.jl!</div>
 ```

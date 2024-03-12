@@ -1,9 +1,9 @@
 """
-CaseStudy core, allows access to the following submodules:
+LiionBatteryModels core, allows access to the following submodules:
 - SenthilModel
 - AshwiniModel
 """
-module CaseStudy
+module LiionBatteryModels
     
     include("senthil/senthil.jl")
     include("ashwini/ashwini.jl")
@@ -11,4 +11,4 @@ module CaseStudy
     export SenthilModel, AshwiniModel
 end
 
-export CaseStudy
+export LiionBatteryModels

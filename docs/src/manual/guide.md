@@ -2,7 +2,7 @@
 If what goes inside Li-ion batteries interests you and you want to simulate various possible parameters for a given input to a cell, this package is for you!
 
 ## Installation
-`CaseStudy.jl` can be installed in 2 ways as below:
+`LiionBatteryModels.jl` can be installed in 2 ways as below:
 
 ### From Julia package manager
 
@@ -16,7 +16,7 @@ pkg> add CaseStudy
 From the Julia REPL, type `]` to enter the Pkg REPL mode and run:
 
 ```
-pkg> add https://github.com/just-ary27/CaseStudy.git
+pkg> add https://github.com/just-ary27/LiionBatteryModels.jl.git
 ```
 
 ## Using the models

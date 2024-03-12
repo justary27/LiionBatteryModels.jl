@@ -2,7 +2,7 @@ using Documenter
 using CaseStudy
 
 makedocs(
-    sitename = "CaseStudy.jl",
+    sitename = "LiionBatteryModels.jl",
     format = Documenter.HTML(
         assets = ["assets/favicon.ico"]
     ),
@@ -22,6 +22,6 @@ makedocs(
 )
 
 deploydocs(
-    repo = "github.com/just-ary27/CaseStudy.git",
+    repo = "github.com/just-ary27/LiionBatteryModels.jl.git",
     versions = nothing,
 )

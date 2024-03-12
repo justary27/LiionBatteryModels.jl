@@ -1,9 +1,13 @@
 <div>
     <img src="assets/readmeAssets/logo.png" align="left" height=40> 
-    <h1>CaseStudy.jl</h1>
+    <h1>LiionBatteryModels.jl</h1>
 </div>
 
-This repository has all the work done during the Spring semester of 2022-23 in the course `CHN300 Case Study`.
+_[by Aryan Ranjan](https://github.com/just-ary27/)_
+
+The work done in this repository comprises of the following:
+- Work done during the Autumn and Spring Semester of 2023-24 in the courses related to my B.Tech project.
+- Work done during the Spring semester of 2022-23 in the course `CHN300 Case Study`.
 
 ## Reduced order model for SOC in Li-ion batteries.
 
@@ -11,8 +15,7 @@ This repository has all the work done during the Spring semester of 2022-23 in t
 ### Supervising Faculty
 - [Prof. Ashwini Sharma](https://www.linkedin.com/in/ashwini-kumar-sharma-nus/)
 
-### Collaborators
-- [Aryan Ranjan](https://github.com/just-ary27/)
+### Collaborators (During CHN300 CaseStudy)
 - [Ashish Singh](https://github.com/morancium)
 - [Pawan Lahoti](https://github.com/PawanLahoti)
 

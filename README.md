@@ -6,7 +6,7 @@
 _[by Aryan Ranjan](https://github.com/just-ary27/)_
 
 The work done in this repository comprises of the following:
-- Work done during the Autumn and Spring Semester of 2023-24 in the courses related to my B.Tech project.
+- Work done during the Autumn and Spring Semester of 2023-24 in the courses related to my B.Tech project (CHN400 A&B).
 - Work done during the Spring semester of 2022-23 in the course `CHN300 Case Study`.
 
 ## Reduced order model for SOC in Li-ion batteries.

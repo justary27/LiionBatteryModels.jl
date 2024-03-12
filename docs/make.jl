@@ -1,12 +1,12 @@
 using Documenter
-using CaseStudy
+using LiionBatteryModels
 
 makedocs(
     sitename="LiionBatteryModels.jl",
     format=Documenter.HTML(
         assets=["assets/favicon.ico"]
     ),
-    modules=[CaseStudy],
+    modules=[LiionBatteryModels],
     pages=[
         "Home" => "index.md",
         "Manual" => [

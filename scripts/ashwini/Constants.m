@@ -44,8 +44,8 @@ classdef Constants
         L = Constants.ln + Constants.ls + Constants.lp;
         
         % Maximum surface solid phase concentration in mol m^-3
-        csn_max=26390;
-        csp_max=22860;
+        csn_max = 26390;
+        csp_max = 22860;
         
         % Initial electrolyte concentration in mol m^-3
         c20 = 1200;
@@ -59,6 +59,14 @@ classdef Constants
         
         % Specific surface area of active material in positive electrode
         ap = 3 * Constants.e1p / Constants.rp;
+
+        % Reaction rate constant
+        kn = 1.764e-11;
+        kp = 3.626e-11;
+
+        % Solid phase diffusivity at T
+        D1n0 = 3.9e-14;
+        D1p0 = 7.51e-14;
         
         % Miscellaneous
         theta = Constants.R * Constants.T * (1 - Constants.t_plus)/Constants.F;

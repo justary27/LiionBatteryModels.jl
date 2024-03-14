@@ -96,6 +96,12 @@ const c₁ₙₘₐₓ = 26390.00
 """Maximum solid phase concentrations in positive electrode"""
 const c₁ₚₘₐₓ = 22860.00
 
+"""Solid diffusivity in negative electrode"""
+const D₁ₙ = 3.9e-14*exp(35000*(1/298.15 - 1/T)/R)
+
+"""Solid diffusivity in positive electrode"""
+const D₁ₚ = 9e-14
+
 #  Characteristic radius of electrode particles (in m)
 """Radii of active material spheres in negative electrode"""
 const rₙ = 12.5e-6
@@ -110,6 +116,10 @@ const aₙ = 3 * ϵ₁ₙ / rₙ
 
 """Specific surface area of active material in positive electrode"""
 const aₚ = 3 * ϵ₁ₚ / rₚ
+
+const kₙ = 1.764e-11
+
+const kₚ = 3.626e-11
 
 # Miscellaneous
 const θ = R*T*(1-t₊)/F

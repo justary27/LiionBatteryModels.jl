@@ -72,6 +72,30 @@ phi2n0 = @(phi2_in, c2n0, c2in, dn1) phi2_in + 2*c.theta*log(c2n0/c2in) ...
 phi2pl = @(phi2_ip, c2pl, c2ip, dp1) phi2_ip + 2*c.theta*log(c2pl/c2ip) ...
            - I*c.lp*(1-((dp1-1)*exp(dp1)+1)/(dp1*(exp(dp1)-1)))/c.k2p(c2pl);
 
+% Volume averaged solid concentrations
+% Refer Eqn 89
+c1n = @(c1n_prev, delT, dn1) c1n_prev - delT * (3*jn_0(dn1)/c.rn);
+c1p = @(c1p_prev, delT, dp1) c1p_prev - delT * (3*jp_l(dp1)/c.rp);
+
+% Radially averaged solid concentrations
+% Refer eqn 90
+c1rn = @(c1rn_prev, delT, dn1) c1rn_prev - ...
+            delT*(45*jn_0(dn1)/(2*c.rn^2) ...
+        + 30*c.D1n0*c1rn_prev/c.rn^2);
+c1rp = @(c1rp_prev, delT, dp1) c1rp_prev - ...
+            delT*(45*jp_0(dp1)/(2*c.rp^2) ...
+        + 30*c.D1p0*c1rp_prev/c.rp^2);
+
+% Surface solid phase concentrations
+% Refer equation 88
+csn = @(c1n_prev, c1rn_prev, delT, dn1) c1n(c1n_prev, delT, dn1) ...
+        - c.rn*jn_0(dn1)/(35*c.D1n0) + ...
+      8*c.rn*c1rn(c1rn_prev, delT, dn1)/35;
+
+csp = @(c1p_prev, c1rp_prev, delT, dp1) c1p(c1p_prev, delT, dp1) ...
+        - c.rp*jp_l(dp1)/(35*c.D1p0) + ...
+      8*c.rp*c1rp(c1rp_prev, delT, dp1)/35;
+
 % Solid potential at battery ends
 % Refer equation 94
 phi1n0 = @(csn, phi2n_0, c2n0, dn1, kn) c.Un(c.SoCn(csn)) ...
@@ -96,6 +120,15 @@ c2n_0 = zeros(size(tspan, 2), 1); c2n_0(1) = c.c20;
 c2p_l = zeros(size(tspan, 2), 1); c2p_l(1) = c.c20;
 c2mid = zeros(size(tspan, 2), 1); c2mid(1) = c.c20;
 
+c1_n = zeros(size(tspan, 2), 1); c1_n(1) = c.csn_max;
+c1_p = zeros(size(tspan, 2), 1); c1_p(1) = c.csp_max;
+
+c1r_n = zeros(size(tspan, 2), 1);
+c1r_p = zeros(size(tspan, 2), 1);
+
+csn = zeros(size(tspan, 2), 1);
+csp = zeros(size(tspan, 2), 1);
+
 % Different electrolyte potentials
 phi2_in = zeros(size(tspan, 2), 1);
 phi2_ip = zeros(size(tspan, 2), 1);
@@ -110,6 +143,7 @@ for i = 2 : 3
                 c2n_0(i-1), c2p_l(i-1), jn_0(dn1_curr), jp_l(dp1_curr) ...
              );
     
+    params
     n0 = params(1); n2 = params(3); n3 = params(4);
     p0 = params(5); p2 = params(7); p3 = params(8);
     s0 = params(9); s2 = params(10); s3 = params(11);
@@ -119,8 +153,8 @@ for i = 2 : 3
     c2ip(i) = c2p(p0, p2, p3, c.ls + c.ln);
 
     % Calculating concentration at battery ends and center
-    c2n_0(i) = c2n(n0, n2, n3, 0);
-    c2p_l(i) = c2p(p0, p2, p3, c.L);
+    c2n_0(i) = params(15);
+    c2p_l(i) = params(16);
     c2mid(i) = c2s(p0, p2, p3, c.ln + c.ls/2);
 
     % Interfacial Electrolyte potentials
@@ -138,8 +172,8 @@ for i = 2 : 3
     % V(i) = phi1_l - phi1_0;
 
     dn1_curr = c.F*c.ln*(I/(2*c.k2n(c.c20)) - I/(2*c.k1n) - ...
-               2*c.theta*log(c2in(i-1)/c2cc)/c.ln - c.Un())/(2*c.R*c.T) + ...
-               log(jn0(kn, csn, c2n_0(i-1)));
+               2*c.theta*log(c2in(i-1)/c2n_0(i-1))/c.ln - c.Un(0))/(2*c.R*c.T) + ...
+               log(jn0(c.kn, csn, c2n_0(i-1)));
 end
 
 
@@ -225,7 +259,5 @@ function params = param_solver( ...
     B(13) = c.an*(1 - c.t_plus)*jn_0*delT/c.e2n + c2n_0_prev;
     B(14) = c.an*(1 - c.t_plus)*jp_l*delT/c.e2p + c2p_l_prev;
     
-    A
-    B
     params = A\B;
 end

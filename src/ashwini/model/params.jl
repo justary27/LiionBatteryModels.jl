@@ -2,12 +2,14 @@ include("cell_voltage.jl")
 
 # The model parameter dₖ₁
 
-function dₙ₁(c₁::SolidConcentration, c₁ᵣ::SolidRadialConcentration, I, dₙ₁ₚ, dₙ₂ₚ, params)
-    F*lₙ*(1/k₂ₙ - 1/σ₁ₙ - 2*θ*log(c₂ᵢₙ(params)./c₂₀(params))/lₙ)/(2*R*T) + log(jₙ₀(c₁, c₁ᵣ, I, lₙ, dₙ₁ₚ, dₙ₂ₚ, params)./jₙ₀(c₁, c₁ᵣ, I, 0, dₙ₁ₚ, dₙ₂ₚ, params))
+# TODO: Fix these functions
+
+function dₙ₁(c₁::cₛ, c₁ᵣ::cₛᵣ, I, dₙ₁ₚ, dₙ₂ₚ, params)
+    F*lₙ*(1/k₂ₙ - 1/σ₁ₙ - 2*θ*log(c₂ᵢₙ(params)./c₂₀(params))/lₙ)/(2*R*T) + log(jₙ₀(c₁, c₁ᵣ, I, lₙ, params)./jₙ₀(c₁, c₁ᵣ, I, 0, params))
 end
 
-function dₚ₁(c₁::SolidConcentration, c₁ᵣ::SolidRadialConcentration, I, dₚ₁ₚ, dₚ₂ₚ, params)
-    F*lₚ*(1/k₂ₚ - 1/σ₁ₚ + 2*θ*log(c₂ᵢₚ(params)./c₂ₗ(params))/lₚ)/(2*R*T) + log(jₚ₀(c₁, c₁ᵣ, I, lₙ + lₛ, dₚ₁ₚ, dₚ₂ₚ, params)./jₚ₀(c₁, c₁ᵣ, I, L, dₚ₁ₚ, dₚ₂ₚ, params))
+function dₚ₁(c₁::cₛ, c₁ᵣ::cₛᵣ, I, dₚ₁ₚ, dₚ₂ₚ, params)
+    F*lₚ*[I/(2*k₂ₚ) - I/(2*σ₁ₚ) + 2*θ*log(c₂ᵢₚ(params)./c₂ₗ(params))/lₚ]/(2*R*T) + log(jₚ₀(c₁, c₁ᵣ, I, lₙ + lₛ, params)./jₚ₀(c₁, c₁ᵣ, I, L, params))
 end
 
 # The model parameter dₖ₂

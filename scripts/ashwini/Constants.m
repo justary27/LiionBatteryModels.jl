@@ -46,6 +46,11 @@ classdef Constants
         % Maximum surface solid phase concentration in mol m^-3
         csn_max = 26390;
         csp_max = 22860;
+
+        % Solid phase concentrations in active material spheres (in mol/m³)
+        c1n0 = 0.74 * Constants.csn_max
+        c1p0 = 0.35 * Constants.csp_max
+
         
         % Initial electrolyte concentration in mol m^-3
         c20 = 1200;
@@ -66,7 +71,7 @@ classdef Constants
 
         % Solid phase diffusivity at T
         D1n0 = 3.9e-14;
-        D1p0 = 7.51e-14;
+        D1p0 = 9e-14;
         
         % Miscellaneous
         theta = Constants.R * Constants.T * (1 - Constants.t_plus)/Constants.F;
@@ -110,7 +115,8 @@ classdef Constants
 
         % Electrolyte diffusivity of material 
         function d2 = D2(c2)
-            d2 = 1e-4 * 10 ^ (-2.2e-4 * c2 -4.43 * (54/(Constants.T-229-0.05 * c2)));
+            % d2 = 1e-4 * 10 ^ (-2.2e-4 * c2 -4.43 * (54/(Constants.T-229-0.05 * c2)));
+            d2 = 1.4e-9;
         end
 
         % Electrolyte diffusivity in different regions of battery

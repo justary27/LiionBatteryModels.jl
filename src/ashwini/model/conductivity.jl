@@ -24,7 +24,7 @@ end
 """
 Effective Electrloyte conductivity in negative electrode
 """
-function k₂ₙ(params)
+function k₂ₙ(params::Vector{Float64})
     k₂(c₂̄ₙ(params)) * (ϵ₂ₙ ^ brugₙ)
 end
 
@@ -35,7 +35,7 @@ end
 """
 Electrloyte conductivity in separator
 """
-function k₂ₛ(params)
+function k₂ₛ(params::Vector{Float64})
     k₂(c₂̄ₛ(params)) * (ϵ₂ₛ ^ brugₛ)
 end
 
@@ -46,7 +46,7 @@ end
 """
 Electrloyte conductivity in positive electrode
 """
-function k₂ₚ(params)
+function k₂ₚ(params::Vector{Float64})
     k₂(c₂̄ₚ(params)) * (ϵ₂ₚ ^ brugₚ)
 end
 

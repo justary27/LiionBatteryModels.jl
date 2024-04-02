@@ -3,15 +3,11 @@
     <h1>LiionBatteryModels.jl</h1>
 </div>
 
-<<<<<<< Updated upstream
-_[by Aryan Ranjan](https://github.com/just-ary27/)_
+_[by Aryan Ranjan](https://github.com/justary27/)_
 
 The work done in this repository comprises of the following:
 - Work done during the Autumn and Spring Semester of 2023-24 in the courses related to my B.Tech project (CHN400 A&B).
 - Work done during the Spring semester of 2022-23 in the course `CHN300 Case Study`.
-=======
-This repository has all the work done during the Autumn and Spring Semester 2023-24 in the course `CHN400A&B BTech Project` and Spring semester of 2022-23 in the course `CHN300 Case Study`.
->>>>>>> Stashed changes
 
 ## Reduced order model for SOC in Li-ion batteries.
 

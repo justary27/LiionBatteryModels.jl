@@ -22,6 +22,6 @@ makedocs(
 )
 
 deploydocs(
-    repo="github.com/just-ary27/LiionBatteryModels.jl.git",
+    repo="github.com/justary27/LiionBatteryModels.jl.git",
     versions=nothing,
 )

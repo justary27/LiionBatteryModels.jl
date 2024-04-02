@@ -16,7 +16,7 @@ pkg> add LiionBatteryModels
 From the Julia REPL, type `]` to enter the Pkg REPL mode and run:
 
 ```
-pkg> add https://github.com/just-ary27/LiionBatteryModels.jl.git
+pkg> add https://github.com/justary27/LiionBatteryModels.jl.git
 ```
 
 ## Using the models

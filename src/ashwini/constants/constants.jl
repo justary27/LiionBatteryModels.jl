@@ -80,13 +80,6 @@ const L = lₙ + lₛ + lₚ
 """Initial electrolyte concentration"""
 const c₂₀ = 1200.00
 
-# Solid phase concentrations in active material spheres (in mol/m³)
-
-"""Initial solid phase concentrations in negative electrode"""
-const c₁ₙ₀ = 12e3
-
-"""Initial solid phase concentrations in positive electrode"""
-const c₁ₚ₀ = 9e3
 
 # Solid phase concentrations in active material spheres (in mol/m³)
 
@@ -95,6 +88,14 @@ const c₁ₙₘₐₓ = 26390.00
 
 """Maximum solid phase concentrations in positive electrode"""
 const c₁ₚₘₐₓ = 22860.00
+
+# Solid phase concentrations in active material spheres (in mol/m³)
+
+"""Initial solid phase concentrations in negative electrode"""
+const c₁ₙ₀ = 0.74*c₁ₙₘₐₓ
+
+"""Initial solid phase concentrations in positive electrode"""
+const c₁ₚ₀ = 0.35*c₁ₚₘₐₓ
 
 """Solid diffusivity in negative electrode"""
 const D₁ₙ = 3.9e-14*exp(35000*(1/298.15 - 1/T)/R)

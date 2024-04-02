@@ -1,7 +1,7 @@
 name = "LiionBatteryModels"
 uuid = "e14a125c-1d82-4c0e-ab8d-e25a4d14207e"
-authors = ["just-ary27 <aryan_r@ch.iitr.ac.in>"]
-version = "0.1.1"
+authors = ["justary27 <aryan_r@ch.iitr.ac.in>"]
+version = "0.1.2"
 
 [deps]
 QuadGK = "1fd47b50-473d-5c70-9696-f719f8f3bcdc"

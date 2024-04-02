@@ -1,6 +1,5 @@
 [deps]
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
-
 LiionBatteryModels = "e14a125c-1d82-4c0e-ab8d-e25a4d14207e"
 
 [compat]

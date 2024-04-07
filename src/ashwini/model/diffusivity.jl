@@ -3,8 +3,7 @@ include("params.jl")
 """Electrolyte diffusivity of material"""
 function d₂(c₂)
     # 1e-4 * 10 ^ (-2.2e-4*c₂ - 4.43*(54/(T-229-0.05*c₂)));
-    10^(-2.2e-4*c₂ - 4.43*(54/(T-229-0.005*c₂)));
-    # 1.4e-9
+    1e-4 * 10^(-2.2e-4*c₂ - 4.43*(54/(T-229-0.005*c₂)));
 end
 
 # Electrolyte diffusivity in different regions of battery

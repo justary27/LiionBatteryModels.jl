@@ -28,8 +28,12 @@ function k₂ₙ(params::Vector{Float64})
     k₂(c₂̄ₙ(params)) * (ϵ₂ₙ ^ brugₙ)
 end
 
-function k₂ₙ(c₂::Float64)
-    k₂(c₂) * (ϵ₂ₙ ^ brugₙ)
+function k₂ₙ(x, params::Vector{Float64})
+    k₂(c₂ₙ(x, params)) * (ϵ₂ₙ ^ brugₙ)
+end
+
+function k₂ₙ(c₂ₙ::Float64)
+    k₂(c₂ₙ) * (ϵ₂ₙ ^ brugₙ)
 end
 
 """
@@ -39,8 +43,12 @@ function k₂ₛ(params::Vector{Float64})
     k₂(c₂̄ₛ(params)) * (ϵ₂ₛ ^ brugₛ)
 end
 
-function k₂ₛ(c₂::Float64)
-    k₂(c₂) * (ϵ₂ₛ ^ brugₛ)
+function k₂ₛ(x, params::Vector{Float64})
+    k₂(c₂ₛ(x, params)) * (ϵ₂ₛ ^ brugₛ)
+end
+
+function k₂ₛ(c₂ₛ::Float64)
+    k₂(c₂ₛ) * (ϵ₂ₛ ^ brugₛ)
 end
 
 """
@@ -50,6 +58,10 @@ function k₂ₚ(params::Vector{Float64})
     k₂(c₂̄ₚ(params)) * (ϵ₂ₚ ^ brugₚ)
 end
 
-function k₂ₚ(c₂::Float64)
-    k₂(c₂) * (ϵ₂ₚ ^ brugₚ)
+function k₂ₚ(x, params::Vector{Float64})
+    k₂(c₂ₚ(x, params)) * (ϵ₂ₚ ^ brugₚ)
+end
+
+function k₂ₚ(c₂ₚ::Float64)
+    k₂(c₂ₚ) * (ϵ₂ₚ ^ brugₚ)
 end

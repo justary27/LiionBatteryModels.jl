@@ -2,14 +2,20 @@ include("cell_voltage.jl")
 
 # The model parameter dₖ₁
 
-# TODO: Fix these functions
-
-function dₙ₁(I, cₛₙ₀::Float64, cₛₙₗ::Float64, params)
-    F*lₙ*(I/k₂ₙ(params) - I/σ₁ₙ - 2*θ*log(c₂ᵢₙ(params)./c₂ₙ₀(params))/lₙ - (Uₙ(cₛₙₗ) - Uₙ(cₛₙ₀))/lₙ)/(2*R*T) + log(jₙ₀(lₙ, cₛₙₗ, params)./jₙ₀(0, cₛₙ₀ , params))
+function dₙ₁(I, cₛₙ₀::Float64, cₛₙₗ::Float64, c₂ᵢₙ::Float64, c₂ₙ₀::Float64, c₂ₙₐ::Float64)
+    F*lₙ*(I/(2*k₂ₙ(c₂ₙₐ)) - I/(2*σ₁ₙ) - 2*θ*log(c₂ᵢₙ/c₂ₙ₀)/lₙ - (Uₙ(cₛₙₗ) - Uₙ(cₛₙ₀))/lₙ)/(2*R*T) + log(jₙ₀(cₛₙₗ, c₂ᵢₙ)./jₙ₀(cₛₙ₀ , c₂ₙ₀))
 end
 
-function dₚ₁(I, cₛₚ₀::Float64, cₛₚₗ::Float64, params)
-    F*lₚ(I/(2*k₂ₚ(params)) - I/(2*σ₁ₚ) + 2*θ*log(c₂ᵢₚ(params)./c₂ₚₗ(params))/lₚ - (Uₚ(cₛₚₗ) - Uₚ(cₛₚ₀))/lₚ)/(2*R*T) + log(jₚ₀(lₙ + lₛ, cₛₚ₀, params)./jₚ₀(L, cₛₚₗ, params))
+function dₙ₁(I, cₛₙ₀::Float64, cₛₙₗ::Float64, paramsₙ)
+    F*lₙ*(I/(2*k₂ₙ(paramsₙ)) - I/(2*σ₁ₙ) - 2*θ*log(c₂ᵢₙ(paramsₙ)./c₂ₙ₀(paramsₙ))/lₙ - (Uₙ(cₛₙₗ) - Uₙ(cₛₙ₀))/lₙ)/(2*R*T) + log(jₙ₀(lₙ, cₛₙₗ, paramsₙ)./jₙ₀(0, cₛₙ₀ , paramsₙ))
+end
+
+function dₚ₁(I, cₛₚ₀::Float64, cₛₚₗ::Float64, c₂ᵢₚ::Float64, c₂ₚₗ::Float64, c₂ₚₐ::Float64)
+    F*lₚ*(I/(2*k₂ₚ(c₂ₚₐ)) - I/(2*σ₁ₚ) + 2*θ*log(c₂ᵢₚ/c₂ₚₗ)/lₚ - (Uₚ(cₛₚₗ) - Uₚ(cₛₚ₀))/lₚ)/(2*R*T) + log(jₚ₀(cₛₚ₀, c₂ᵢₚ)/jₚ₀(cₛₚₗ, c₂ₚₗ))
+end
+
+function dₚ₁(I, cₛₚ₀::Float64, cₛₚₗ::Float64, paramsₚ)
+    F*lₚ*(I/(2*k₂ₚ(paramsₚ)) - I/(2*σ₁ₚ) + 2*θ*log(c₂ᵢₚ(paramsₚ)./c₂ₚₗ(paramsₚ))/lₚ - (Uₚ(cₛₚₗ) - Uₚ(cₛₚ₀))/lₚ)/(2*R*T) + log(jₚ₀(lₙ + lₛ, cₛₚ₀, paramsₚ)./jₚ₀(L, cₛₚₗ, paramsₚ))
 end
 
 # The model parameter dₖ₂

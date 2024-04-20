@@ -1,39 +1,39 @@
 # Universal Constants
 
 """Universal gas constant"""
-const R = 8.314
+const R::Float64 = 8.314
 
 """Faraday's constant"""
-const F = 96487
+const F::Float64 = 96487
 
 # Model Constants
 
 """System Temperature (in K)"""
-const T = 298
+const T::Float64 = 298
 
 """Transferennce number of Li ion species dissolved in liquid"""
-const t₊ = 0.363
+const t₊::Float64 = 0.363
 
 
 # Transfer coefficients
 
 """Anodic transfer coefficient"""
-const αₐ = 0.5
+const αₐ::Float64 = 0.5
 
 """Cathodic transfer coefficient"""
-const αᵪ = 0.5
+const αᵪ::Float64 = 0.5
 
 
 # Bruggeman factor in different battery regions
 
 """Bruggeman factor in negative electrode"""
-const brugₙ = 1.5
+const brugₙ::Float64 = 1.5
 
 """Bruggeman factor in separator"""
-const brugₛ = 4.0
+const brugₛ::Float64 = 4.0
 
 """Bruggeman factor in positive electrode"""
-const brugₚ = 1.5
+const brugₚ::Float64 = 1.5
 
 # Volume fraction in different battery regions
 
@@ -98,10 +98,10 @@ const c₁ₙ₀ = 0.74*c₁ₙₘₐₓ
 const c₁ₚ₀ = 0.35*c₁ₚₘₐₓ
 
 """Solid diffusivity in negative electrode"""
-const D₁ₙ = 3.9e-14*exp(35000*(1/298.15 - 1/T)/R)
+const D₁ₙ = 3.9e-14
 
 """Solid diffusivity in positive electrode"""
-const D₁ₚ = 9e-14
+const D₁ₚ = 7.51e-14
 
 #  Characteristic radius of electrode particles (in m)
 """Radii of active material spheres in negative electrode"""

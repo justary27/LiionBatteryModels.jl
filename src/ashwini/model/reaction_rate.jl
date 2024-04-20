@@ -17,5 +17,5 @@ end
 
 """Average surface reaction rate in positive electrode """
 function j̅ₚ(I)
-    -I/(aₙ*F*lₙ)
+    -I/(aₚ*F*lₚ)
 end

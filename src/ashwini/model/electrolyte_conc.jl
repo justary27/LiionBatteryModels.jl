@@ -52,7 +52,7 @@ Overall electrolyte concentration function
 function c₂(x, params::Vector{Float64})
     if x <= lₙ
         c₂ₙ(x, params)
-    elseif x > lₙ && x <= lₙ + lₛ
+    elseif x > lₙ && x < lₙ + lₛ
         c₂ₛ(x, params)
     else
         c₂ₚ(x, params)
@@ -65,7 +65,7 @@ end
 Average electrolyte concentration in negative electrode
 """
 function c₂̄ₙ(params::Vector{Float64})
-    integral, errest = quadgk(x->c₂(x, params), 0, lₙ)
+    integral, errest = quadgk(x->c₂ₙ(x, params), 0, lₙ)
     
     integral/lₙ
 end
@@ -74,7 +74,7 @@ end
 Average electrolyte concentration in separator
 """
 function c₂̄ₛ(params::Vector{Float64})
-    integral, errest = quadgk(x->c₂(x, params), lₙ, lₛ + lₙ)
+    integral, errest = quadgk(x->c₂ₛ(x, params), lₙ, lₛ + lₙ)
     
     integral/lₛ 
 end
@@ -83,7 +83,7 @@ end
 Average electrolyte concentration in positive electrode
 """
 function c₂̄ₚ(params::Vector{Float64})
-    integral, errest = quadgk(x->c₂(x, params), lₛ + lₙ, L)
+    integral, errest = quadgk(x->c₂ₚ(x, params), lₛ + lₙ, L)
     
     integral/lₚ
 end
